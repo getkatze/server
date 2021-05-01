@@ -17,6 +17,7 @@ model User {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
   username  String   @unique
+  password  String
   crypto    Int      @default(0)
   campaigns String[] // just put in campaign ids here
 }
@@ -34,7 +35,7 @@ model Campaign {
 }
 
 model Task {
-  id         String    @id @default(uuid())
+  id         String   @id @default(uuid())
   value      String
   user       String
   Campaign   Campaign @relation(fields: [campaignId], references: [id])
