@@ -21,8 +21,13 @@ import CampaignResolver from './resolvers/CampaignResolver';
   });
 
   app.use(morgan('short'));
+  app.use((_req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+  });
 
-  apolloServer.applyMiddleware({ app, cors: false });
+  apolloServer.applyMiddleware({ app, cors: true });
   const port = process.env.PORT || 4000;
   app.listen(port, () => {
     console.log(`Listening on port ${port}/graphql`);

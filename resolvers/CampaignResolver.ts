@@ -14,37 +14,41 @@ export default class CampaignResolver {
           id: id,
         },
         include: {
-          tasks: true
-        }
+          tasks: true,
+        },
       });
     }
     return await prisma.campaign.findMany();
   }
 
   @Query(() => Campaign)
-  async getTasks(@Arg("campaignId") id: string) {
+  async getTasks(@Arg('campaignId') id: string) {
     return await prisma.campaign.findUnique({
       where: {
-        id: id
+        id: id,
       },
       include: {
-        tasks: true
-      }
-    })
+        tasks: true,
+      },
+    });
   }
 
   @Mutation(() => Campaign)
-  async createCampaign(@Arg('name') name: string, @Arg("contractor") contractor: string,
-    @Arg("options", () => [String]) options: string[], @Arg("description") description: string) {
+  async createCampaign(
+    @Arg('name') name: string,
+    @Arg('contractor') contractor: string,
+    @Arg('options', () => [String]) options: string[],
+    @Arg('description') description: string
+  ) {
     return await prisma.campaign.create({
       data: {
         name,
         description,
         tasks: {
           create: [
-            { value: "lemon", user: "John" },
-            { value: "orange", user: "WillLovesRust" }
-          ]
+            { value: 'lemon', user: 'John' },
+            { value: 'orange', user: 'WillLovesRust' },
+          ],
         },
         contractor,
         options,
