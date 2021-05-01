@@ -15,6 +15,7 @@ export default class AnalysisResolver {
   @Mutation(() => Boolean)
   async clearClassifiers() {
     classifier = new natural.BayesClassifier();
+    return true;
   }
 
   @Query(() => String)
