@@ -21,7 +21,7 @@ export default class CampaignResolver {
     return await prisma.campaign.findMany();
   }
 
-  @Query(() => Campaign)
+  @Query(() => Campaign, { nullable: true })
   async getCampaignById(@Arg('campaignId') id: string) {
     return await prisma.campaign.findUnique({
       where: {

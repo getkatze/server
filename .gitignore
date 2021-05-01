@@ -4,3 +4,4 @@ node_modules/
 generated/
 db/
 docker-compose.yml
+build/

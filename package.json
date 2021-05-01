@@ -7,7 +7,8 @@
   "author": "Will Lane <williamlane923@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "yarn nodemon --exec yarn ts-node index.ts",
+    "dev": "yarn nodemon --exec yarn ts-node index.ts",
+    "start": "yarn tsc && node build",
     "format": "yarn prettier --write ."
   },
   "dependencies": {
