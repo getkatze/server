@@ -1,6 +1,4 @@
-# Katze Swag Server
-
-## This is the swaggiest hackathon server in the entire west
+# Katze Server
 
 ### Our Stack
 
