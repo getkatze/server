@@ -1,5 +1,5 @@
 import { Arg, Mutation, Query, Resolver } from 'type-graphql';
-import { Campaign, Task } from '../generated/type-graphql';
+import { Campaign } from '../generated/type-graphql';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();

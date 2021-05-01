@@ -7,12 +7,13 @@ import { buildSchema } from 'type-graphql';
 import HelloWorldResolver from './resolvers/HelloWorldResolver';
 import UserResolver from './resolvers/UserResolver';
 import CampaignResolver from './resolvers/CampaignResolver';
+import AnalysisResolver from './resolvers/AnalysisResolver';
 
 (async () => {
   const app = express();
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [CampaignResolver, HelloWorldResolver, UserResolver],
+      resolvers: [CampaignResolver, HelloWorldResolver, UserResolver, AnalysisResolver],
       validate: true,
     }),
     context: ({ req, res }) => ({ req, res }),
