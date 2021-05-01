@@ -1,6 +1,6 @@
-import { GraphQLResolveInfo } from "graphql";
-import { FindUniqueUserArgs } from "./args/FindUniqueUserArgs";
-import { User } from "../../../models/User";
+import { GraphQLResolveInfo } from 'graphql';
+import { FindUniqueUserArgs } from './args/FindUniqueUserArgs';
+import { User } from '../../../models/User';
 export declare class FindUniqueUserResolver {
-    user(ctx: any, info: GraphQLResolveInfo, args: FindUniqueUserArgs): Promise<User | null>;
+  user(ctx: any, info: GraphQLResolveInfo, args: FindUniqueUserArgs): Promise<User | null>;
 }

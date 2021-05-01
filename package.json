@@ -7,7 +7,8 @@
   "author": "Will Lane <williamlane923@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "yarn nodemon --exec yarn ts-node index.ts"
+    "start": "yarn nodemon --exec yarn ts-node index.ts",
+    "format": "yarn prettier --write ."
   },
   "dependencies": {
     "@prisma/client": "^2.21.2",
@@ -26,6 +27,7 @@
     "@types/morgan": "^1.9.2",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
     "prisma": "^2.21.2",
     "ts-node": "^9.1.1",
     "typegraphql-prisma": "^0.14.0",

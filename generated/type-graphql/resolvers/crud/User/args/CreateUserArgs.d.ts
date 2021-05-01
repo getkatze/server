@@ -1,4 +1,4 @@
-import { UserCreateInput } from "../../../inputs/UserCreateInput";
+import { UserCreateInput } from '../../../inputs/UserCreateInput';
 export declare class CreateUserArgs {
-    data: UserCreateInput;
+  data: UserCreateInput;
 }

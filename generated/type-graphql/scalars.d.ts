@@ -1,2 +1,2 @@
-import { GraphQLScalarType } from "graphql";
+import { GraphQLScalarType } from 'graphql';
 export declare const DecimalJSScalar: GraphQLScalarType;

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserSumAggregate = exports.UserMinAggregate = exports.UserMaxAggregate = exports.UserGroupBy = exports.UserCountAggregate = exports.UserAvgAggregate = exports.TaskMinAggregate = exports.TaskMaxAggregate = exports.TaskGroupBy = exports.TaskCountAggregate = exports.CampaignSumAggregate = exports.CampaignMinAggregate = exports.CampaignMaxAggregate = exports.CampaignGroupBy = exports.CampaignCountAggregate = exports.CampaignAvgAggregate = exports.AggregateUser = exports.AggregateTask = exports.AggregateCampaign = exports.AffectedRowsOutput = void 0;
@@ -41,3 +42,64 @@ var UserMinAggregate_1 = require("./UserMinAggregate");
 Object.defineProperty(exports, "UserMinAggregate", { enumerable: true, get: function () { return UserMinAggregate_1.UserMinAggregate; } });
 var UserSumAggregate_1 = require("./UserSumAggregate");
 Object.defineProperty(exports, "UserSumAggregate", { enumerable: true, get: function () { return UserSumAggregate_1.UserSumAggregate; } });
+=======
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+exports.UserSumAggregate = exports.UserMinAggregate = exports.UserMaxAggregate = exports.UserGroupBy = exports.UserCountAggregate = exports.UserAvgAggregate = exports.AggregateUser = exports.AffectedRowsOutput = void 0;
+var AffectedRowsOutput_1 = require('./AffectedRowsOutput');
+Object.defineProperty(exports, 'AffectedRowsOutput', {
+  enumerable: true,
+  get: function () {
+    return AffectedRowsOutput_1.AffectedRowsOutput;
+  },
+});
+var AggregateUser_1 = require('./AggregateUser');
+Object.defineProperty(exports, 'AggregateUser', {
+  enumerable: true,
+  get: function () {
+    return AggregateUser_1.AggregateUser;
+  },
+});
+var UserAvgAggregate_1 = require('./UserAvgAggregate');
+Object.defineProperty(exports, 'UserAvgAggregate', {
+  enumerable: true,
+  get: function () {
+    return UserAvgAggregate_1.UserAvgAggregate;
+  },
+});
+var UserCountAggregate_1 = require('./UserCountAggregate');
+Object.defineProperty(exports, 'UserCountAggregate', {
+  enumerable: true,
+  get: function () {
+    return UserCountAggregate_1.UserCountAggregate;
+  },
+});
+var UserGroupBy_1 = require('./UserGroupBy');
+Object.defineProperty(exports, 'UserGroupBy', {
+  enumerable: true,
+  get: function () {
+    return UserGroupBy_1.UserGroupBy;
+  },
+});
+var UserMaxAggregate_1 = require('./UserMaxAggregate');
+Object.defineProperty(exports, 'UserMaxAggregate', {
+  enumerable: true,
+  get: function () {
+    return UserMaxAggregate_1.UserMaxAggregate;
+  },
+});
+var UserMinAggregate_1 = require('./UserMinAggregate');
+Object.defineProperty(exports, 'UserMinAggregate', {
+  enumerable: true,
+  get: function () {
+    return UserMinAggregate_1.UserMinAggregate;
+  },
+});
+var UserSumAggregate_1 = require('./UserSumAggregate');
+Object.defineProperty(exports, 'UserSumAggregate', {
+  enumerable: true,
+  get: function () {
+    return UserSumAggregate_1.UserSumAggregate;
+  },
+});
+>>>>>>> 659b2b1e564d0d7f19b4d08e2a3d206cae328538

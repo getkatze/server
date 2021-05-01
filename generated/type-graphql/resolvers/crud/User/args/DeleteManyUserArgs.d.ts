@@ -1,4 +1,4 @@
-import { UserWhereInput } from "../../../inputs/UserWhereInput";
+import { UserWhereInput } from '../../../inputs/UserWhereInput';
 export declare class DeleteManyUserArgs {
-    where?: UserWhereInput | undefined;
+  where?: UserWhereInput | undefined;
 }

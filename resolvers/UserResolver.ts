@@ -6,19 +6,17 @@ const prisma = new PrismaClient();
 
 @Resolver()
 export default class UserResolver {
-	@Query(() => [User])
-	async users() {
-		return await prisma.user.findMany();
-	}
+  @Query(() => [User])
+  async users() {
+    return await prisma.user.findMany();
+  }
 
-	@Mutation(() => User)
-	async createUser(
-		@Arg('username') username: string,
-	) {
-		return await prisma.user.create({
-			data: {
-				username: username,
-			}
-		});
-	}
+  @Mutation(() => User)
+  async createUser(@Arg('username') username: string) {
+    return await prisma.user.create({
+      data: {
+        username: username,
+      },
+    });
+  }
 }

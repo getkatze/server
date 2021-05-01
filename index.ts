@@ -9,6 +9,7 @@ import UserResolver from './resolvers/UserResolver';
 import CampaignResolver from "./resolvers/CampaignResolver"
 
 (async () => {
+<<<<<<< HEAD
 	const app = express();
 	const apolloServer = new ApolloServer({
 		schema: await buildSchema({
@@ -19,12 +20,24 @@ import CampaignResolver from "./resolvers/CampaignResolver"
 		playground: true,
 		introspection: true,
 	});
+=======
+  const app = express();
+  const apolloServer = new ApolloServer({
+    schema: await buildSchema({
+      resolvers: [HelloWorldResolver, UserResolver],
+      validate: true,
+    }),
+    context: ({ req, res }) => ({ req, res }),
+    playground: true,
+    introspection: true,
+  });
+>>>>>>> 659b2b1e564d0d7f19b4d08e2a3d206cae328538
 
-	app.use(morgan('short'));
+  app.use(morgan('short'));
 
-	apolloServer.applyMiddleware({ app, cors: false });
-	const port = process.env.PORT || 4000;
-	app.listen(port, () => {
-		console.log(`Listening on port ${port}/graphql`);
-	});
-})()
+  apolloServer.applyMiddleware({ app, cors: false });
+  const port = process.env.PORT || 4000;
+  app.listen(port, () => {
+    console.log(`Listening on port ${port}/graphql`);
+  });
+})();
