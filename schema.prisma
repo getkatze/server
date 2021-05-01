@@ -14,33 +14,29 @@ generator typegraphql {
 }
 
 model User {
-  id        String     @id @default(uuid())
-  createdAt DateTime   @default(now())
-  username  String     @unique
-  crypto    Int        @default(0)
-  tasks     Task[]
-  campaigns Campaign[]
-}
-
-model Task {
-  id         String   @id @default(uuid())
-  value      String
-  user       User     @relation(fields: [userId], references: [id])
-  createdAt  DateTime @default(now())
-  campaign   Campaign @relation(fields: [campaignId], references: [id])
-  userId     String
-  campaignId String
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  username  String   @unique
+  crypto    Int      @default(0)
+  campaigns String[] // just put in campaign ids here
 }
 
 model Campaign {
   id               String   @id @default(uuid())
   name             String
-  contractor       User     @relation(fields: [contractorId], references: [id])
-  tasks            Task[]
-  contractorId     String
+  contractor       String
   description      String
   options          String[]
+  tasks            Task[]
   totalPrizeAmount Int?
   participantLimit Int?
   completed        Boolean  @default(false)
+}
+
+model Task {
+  id         String    @id @default(uuid())
+  value      String
+  user       String
+  Campaign   Campaign @relation(fields: [campaignId], references: [id])
+  campaignId String
 }
