@@ -13,12 +13,10 @@ export default class UserResolver {
 
   @Mutation(() => User)
   async createUser(@Arg('username') username: string) {
-    return await prisma.user.create(
-      {
+    return await prisma.user.create({
       data: {
         username: username,
       },
-    }
-    );
+    });
   }
 }
