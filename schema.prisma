@@ -13,3 +13,9 @@ generator typegraphql {
   emitTranspiledCode = true
 }
 
+model User {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  username  String   @unique
+  crypto    Int      @default(0)
+}

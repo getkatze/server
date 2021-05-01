@@ -7,7 +7,7 @@
   "author": "Will Lane <williamlane923@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "yarn nodemon --exec yarn ts-node src/index.ts"
+    "start": "yarn nodemon --exec yarn ts-node index.ts"
   },
   "dependencies": {
     "@prisma/client": "^2.21.2",
