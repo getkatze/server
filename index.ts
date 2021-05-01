@@ -13,7 +13,9 @@ import HelloWorldResolver from './resolvers/HelloWorldResolver';
 			resolvers: [HelloWorldResolver],
 			validate: true,
 		}),
-		context: ({ req, res }) => ({ req, res })
+		context: ({ req, res }) => ({ req, res }),
+		playground: true,
+		introspection: true,
 	});
 
 	app.use(morgan('short'));
