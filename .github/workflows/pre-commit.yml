@@ -1,0 +1,14 @@
+name: pre-commit
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: pre-commit/action@v2.0.2
+        with:
+          extra_args: yarn format
