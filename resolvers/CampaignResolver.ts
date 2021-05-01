@@ -60,20 +60,20 @@ export default class CampaignResolver {
   async createTask(
     @Arg('campaignId') campaignId: string,
     @Arg('value') value: string,
-    @Arg('userId') userId: string,
+    @Arg('userId') userId: string
   ) {
     return await prisma.campaign.update({
       where: {
-        id: campaignId
+        id: campaignId,
       },
       data: {
         tasks: {
           create: {
             user: userId,
-            value: value
-          }
-        }
-      }
-    })
+            value: value,
+          },
+        },
+      },
+    });
   }
 }
