@@ -9,3 +9,29 @@
 - Express
 - Postgresql (Prisma)
 - Graphql (Type-Graphql + Prisma type generators)
+
+## Using
+
+#### Migrations
+
+```shell 
+yarn prisma migrate dev
+```
+
+#### Push db
+
+```shell
+yarn prisma db push --preview-feature
+```
+
+#### Formatting
+
+```shell
+yarn format
+```
+
+#### Running
+
+```shell
+yarn start
+```
