@@ -1,10 +1,18 @@
 import * as crudResolvers from "./resolvers/crud/resolvers-crud.index";
+import * as relationResolvers from "./resolvers/relations/resolvers.index";
 import * as models from "./models";
 import * as outputTypes from "./resolvers/outputs";
 import * as inputTypes from "./resolvers/inputs";
 import * as argsTypes from "./resolvers/crud/args.index";
 declare const crudResolversMap: {
     User: typeof crudResolvers.UserCrudResolver;
+    Task: typeof crudResolvers.TaskCrudResolver;
+    Campaign: typeof crudResolvers.CampaignCrudResolver;
+};
+declare const relationResolversMap: {
+    User: typeof relationResolvers.UserRelationsResolver;
+    Task: typeof relationResolvers.TaskRelationsResolver;
+    Campaign: typeof relationResolvers.CampaignRelationsResolver;
 };
 declare type ResolverModelNames = keyof typeof crudResolversMap;
 declare type ModelResolverActionNames<TModel extends ResolverModelNames> = keyof typeof crudResolversMap[TModel]["prototype"];
@@ -13,6 +21,13 @@ export declare type ResolversEnhanceMap = {
     [TModel in ResolverModelNames]?: ResolverActionsConfig<TModel>;
 };
 export declare function applyResolversEnhanceMap(resolversEnhanceMap: ResolversEnhanceMap): void;
+declare type RelationResolverModelNames = keyof typeof relationResolversMap;
+declare type RelationResolverActionNames<TModel extends RelationResolverModelNames> = keyof typeof relationResolversMap[TModel]["prototype"];
+export declare type RelationResolverActionsConfig<TModel extends RelationResolverModelNames> = Partial<Record<RelationResolverActionNames<TModel> | "_all", MethodDecorator[]>>;
+export declare type RelationResolversEnhanceMap = {
+    [TModel in RelationResolverModelNames]?: RelationResolverActionsConfig<TModel>;
+};
+export declare function applyRelationResolversEnhanceMap(relationResolversEnhanceMap: RelationResolversEnhanceMap): void;
 declare type FieldsConfig<TTypeKeys extends string = string> = Partial<Record<TTypeKeys | "_all", PropertyDecorator[]>>;
 declare type ModelNames = keyof typeof models;
 declare type ModelFieldNames<TModel extends ModelNames> = Exclude<keyof typeof models[TModel]["prototype"], number | symbol>;

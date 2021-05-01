@@ -30,6 +30,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserCreateInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
+const CampaignCreateNestedManyWithoutContractorInput_1 = require("../inputs/CampaignCreateNestedManyWithoutContractorInput");
+const TaskCreateNestedManyWithoutUserInput_1 = require("../inputs/TaskCreateNestedManyWithoutUserInput");
 let UserCreateInput = class UserCreateInput {
 };
 __decorate([
@@ -56,6 +58,18 @@ __decorate([
     }),
     __metadata("design:type", Number)
 ], UserCreateInput.prototype, "crypto", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => TaskCreateNestedManyWithoutUserInput_1.TaskCreateNestedManyWithoutUserInput, {
+        nullable: true
+    }),
+    __metadata("design:type", TaskCreateNestedManyWithoutUserInput_1.TaskCreateNestedManyWithoutUserInput)
+], UserCreateInput.prototype, "tasks", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => CampaignCreateNestedManyWithoutContractorInput_1.CampaignCreateNestedManyWithoutContractorInput, {
+        nullable: true
+    }),
+    __metadata("design:type", CampaignCreateNestedManyWithoutContractorInput_1.CampaignCreateNestedManyWithoutContractorInput)
+], UserCreateInput.prototype, "campaigns", void 0);
 UserCreateInput = __decorate([
     TypeGraphQL.InputType({
         isAbstract: true

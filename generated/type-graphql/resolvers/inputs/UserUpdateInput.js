@@ -30,9 +30,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserUpdateInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
+const CampaignUpdateManyWithoutContractorInput_1 = require("../inputs/CampaignUpdateManyWithoutContractorInput");
 const DateTimeFieldUpdateOperationsInput_1 = require("../inputs/DateTimeFieldUpdateOperationsInput");
 const IntFieldUpdateOperationsInput_1 = require("../inputs/IntFieldUpdateOperationsInput");
 const StringFieldUpdateOperationsInput_1 = require("../inputs/StringFieldUpdateOperationsInput");
+const TaskUpdateManyWithoutUserInput_1 = require("../inputs/TaskUpdateManyWithoutUserInput");
 let UserUpdateInput = class UserUpdateInput {
 };
 __decorate([
@@ -59,6 +61,18 @@ __decorate([
     }),
     __metadata("design:type", IntFieldUpdateOperationsInput_1.IntFieldUpdateOperationsInput)
 ], UserUpdateInput.prototype, "crypto", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => TaskUpdateManyWithoutUserInput_1.TaskUpdateManyWithoutUserInput, {
+        nullable: true
+    }),
+    __metadata("design:type", TaskUpdateManyWithoutUserInput_1.TaskUpdateManyWithoutUserInput)
+], UserUpdateInput.prototype, "tasks", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => CampaignUpdateManyWithoutContractorInput_1.CampaignUpdateManyWithoutContractorInput, {
+        nullable: true
+    }),
+    __metadata("design:type", CampaignUpdateManyWithoutContractorInput_1.CampaignUpdateManyWithoutContractorInput)
+], UserUpdateInput.prototype, "campaigns", void 0);
 UserUpdateInput = __decorate([
     TypeGraphQL.InputType({
         isAbstract: true

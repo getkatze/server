@@ -1,0 +1,12 @@
+export { AggregateCampaignArgs } from "./AggregateCampaignArgs";
+export { CreateCampaignArgs } from "./CreateCampaignArgs";
+export { CreateManyCampaignArgs } from "./CreateManyCampaignArgs";
+export { DeleteCampaignArgs } from "./DeleteCampaignArgs";
+export { DeleteManyCampaignArgs } from "./DeleteManyCampaignArgs";
+export { FindFirstCampaignArgs } from "./FindFirstCampaignArgs";
+export { FindManyCampaignArgs } from "./FindManyCampaignArgs";
+export { FindUniqueCampaignArgs } from "./FindUniqueCampaignArgs";
+export { GroupByCampaignArgs } from "./GroupByCampaignArgs";
+export { UpdateCampaignArgs } from "./UpdateCampaignArgs";
+export { UpdateManyCampaignArgs } from "./UpdateManyCampaignArgs";
+export { UpsertCampaignArgs } from "./UpsertCampaignArgs";

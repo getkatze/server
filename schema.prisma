@@ -8,14 +8,39 @@ generator client {
 }
 
 generator typegraphql {
-  provider = "typegraphql-prisma"
-  output   = "generated/type-graphql"
+  provider           = "typegraphql-prisma"
+  output             = "generated/type-graphql"
   emitTranspiledCode = true
 }
 
 model User {
-  id        String   @id @default(uuid())
-  createdAt DateTime @default(now())
-  username  String   @unique
-  crypto    Int      @default(0)
+  id        String     @id @default(uuid())
+  createdAt DateTime   @default(now())
+  username  String     @unique
+  crypto    Int        @default(0)
+  tasks     Task[]
+  campaigns Campaign[]
+}
+
+model Task {
+  id         String   @id @default(uuid())
+  value      String
+  user       User     @relation(fields: [userId], references: [id])
+  createdAt  DateTime @default(now())
+  campaign   Campaign @relation(fields: [campaignId], references: [id])
+  userId     String
+  campaignId String
+}
+
+model Campaign {
+  id               String   @id @default(uuid())
+  name             String
+  contractor       User     @relation(fields: [contractorId], references: [id])
+  tasks            Task[]
+  contractorId     String
+  description      String
+  options          String[]
+  totalPrizeAmount Int?
+  participantLimit Int?
+  completed        Boolean  @default(false)
 }

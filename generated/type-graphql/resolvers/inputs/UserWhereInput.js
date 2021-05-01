@@ -31,9 +31,11 @@ var UserWhereInput_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserWhereInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
+const CampaignListRelationFilter_1 = require("../inputs/CampaignListRelationFilter");
 const DateTimeFilter_1 = require("../inputs/DateTimeFilter");
 const IntFilter_1 = require("../inputs/IntFilter");
 const StringFilter_1 = require("../inputs/StringFilter");
+const TaskListRelationFilter_1 = require("../inputs/TaskListRelationFilter");
 let UserWhereInput = UserWhereInput_1 = class UserWhereInput {
 };
 __decorate([
@@ -78,6 +80,18 @@ __decorate([
     }),
     __metadata("design:type", IntFilter_1.IntFilter)
 ], UserWhereInput.prototype, "crypto", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => TaskListRelationFilter_1.TaskListRelationFilter, {
+        nullable: true
+    }),
+    __metadata("design:type", TaskListRelationFilter_1.TaskListRelationFilter)
+], UserWhereInput.prototype, "tasks", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => CampaignListRelationFilter_1.CampaignListRelationFilter, {
+        nullable: true
+    }),
+    __metadata("design:type", CampaignListRelationFilter_1.CampaignListRelationFilter)
+], UserWhereInput.prototype, "campaigns", void 0);
 UserWhereInput = UserWhereInput_1 = __decorate([
     TypeGraphQL.InputType({
         isAbstract: true

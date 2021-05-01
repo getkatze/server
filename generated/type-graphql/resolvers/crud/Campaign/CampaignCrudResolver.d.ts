@@ -1,0 +1,31 @@
+import { GraphQLResolveInfo } from "graphql";
+import { AggregateCampaignArgs } from "./args/AggregateCampaignArgs";
+import { CreateCampaignArgs } from "./args/CreateCampaignArgs";
+import { CreateManyCampaignArgs } from "./args/CreateManyCampaignArgs";
+import { DeleteCampaignArgs } from "./args/DeleteCampaignArgs";
+import { DeleteManyCampaignArgs } from "./args/DeleteManyCampaignArgs";
+import { FindFirstCampaignArgs } from "./args/FindFirstCampaignArgs";
+import { FindManyCampaignArgs } from "./args/FindManyCampaignArgs";
+import { FindUniqueCampaignArgs } from "./args/FindUniqueCampaignArgs";
+import { GroupByCampaignArgs } from "./args/GroupByCampaignArgs";
+import { UpdateCampaignArgs } from "./args/UpdateCampaignArgs";
+import { UpdateManyCampaignArgs } from "./args/UpdateManyCampaignArgs";
+import { UpsertCampaignArgs } from "./args/UpsertCampaignArgs";
+import { Campaign } from "../../../models/Campaign";
+import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
+import { AggregateCampaign } from "../../outputs/AggregateCampaign";
+import { CampaignGroupBy } from "../../outputs/CampaignGroupBy";
+export declare class CampaignCrudResolver {
+    campaign(ctx: any, info: GraphQLResolveInfo, args: FindUniqueCampaignArgs): Promise<Campaign | null>;
+    findFirstCampaign(ctx: any, info: GraphQLResolveInfo, args: FindFirstCampaignArgs): Promise<Campaign | null>;
+    campaigns(ctx: any, info: GraphQLResolveInfo, args: FindManyCampaignArgs): Promise<Campaign[]>;
+    createCampaign(ctx: any, info: GraphQLResolveInfo, args: CreateCampaignArgs): Promise<Campaign>;
+    createManyCampaign(ctx: any, info: GraphQLResolveInfo, args: CreateManyCampaignArgs): Promise<AffectedRowsOutput>;
+    deleteCampaign(ctx: any, info: GraphQLResolveInfo, args: DeleteCampaignArgs): Promise<Campaign | null>;
+    updateCampaign(ctx: any, info: GraphQLResolveInfo, args: UpdateCampaignArgs): Promise<Campaign | null>;
+    deleteManyCampaign(ctx: any, info: GraphQLResolveInfo, args: DeleteManyCampaignArgs): Promise<AffectedRowsOutput>;
+    updateManyCampaign(ctx: any, info: GraphQLResolveInfo, args: UpdateManyCampaignArgs): Promise<AffectedRowsOutput>;
+    upsertCampaign(ctx: any, info: GraphQLResolveInfo, args: UpsertCampaignArgs): Promise<Campaign>;
+    aggregateCampaign(ctx: any, info: GraphQLResolveInfo, args: AggregateCampaignArgs): Promise<AggregateCampaign>;
+    groupByCampaign(ctx: any, info: GraphQLResolveInfo, args: GroupByCampaignArgs): Promise<CampaignGroupBy[]>;
+}
