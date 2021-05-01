@@ -1,3 +1,3 @@
 export declare class StringFieldUpdateOperationsInput {
-    set?: string | undefined;
+  set?: string | undefined;
 }

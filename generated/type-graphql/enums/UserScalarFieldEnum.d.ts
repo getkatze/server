@@ -1,6 +1,6 @@
 export declare enum UserScalarFieldEnum {
-    id = "id",
-    createdAt = "createdAt",
-    username = "username",
-    crypto = "crypto"
+  id = 'id',
+  createdAt = 'createdAt',
+  username = 'username',
+  crypto = 'crypto',
 }

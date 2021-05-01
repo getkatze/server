@@ -1,1 +1,1 @@
-export { UserCrudResolver } from "./User/UserCrudResolver";
+export { UserCrudResolver } from './User/UserCrudResolver';

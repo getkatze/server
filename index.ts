@@ -8,22 +8,22 @@ import HelloWorldResolver from './resolvers/HelloWorldResolver';
 import UserResolver from './resolvers/UserResolver';
 
 (async () => {
-	const app = express();
-	const apolloServer = new ApolloServer({
-		schema: await buildSchema({
-			resolvers: [HelloWorldResolver, UserResolver],
-			validate: true,
-		}),
-		context: ({ req, res }) => ({ req, res }),
-		playground: true,
-		introspection: true,
-	});
+  const app = express();
+  const apolloServer = new ApolloServer({
+    schema: await buildSchema({
+      resolvers: [HelloWorldResolver, UserResolver],
+      validate: true,
+    }),
+    context: ({ req, res }) => ({ req, res }),
+    playground: true,
+    introspection: true,
+  });
 
-	app.use(morgan('short'));
+  app.use(morgan('short'));
 
-	apolloServer.applyMiddleware({ app, cors: false });
-	const port = process.env.PORT || 4000;
-	app.listen(port, () => {
-		console.log(`Listening on port ${port}/graphql`);
-	});
-})()
+  apolloServer.applyMiddleware({ app, cors: false });
+  const port = process.env.PORT || 4000;
+  app.listen(port, () => {
+    console.log(`Listening on port ${port}/graphql`);
+  });
+})();

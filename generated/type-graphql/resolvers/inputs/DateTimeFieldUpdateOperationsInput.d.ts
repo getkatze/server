@@ -1,3 +1,3 @@
 export declare class DateTimeFieldUpdateOperationsInput {
-    set?: Date | undefined;
+  set?: Date | undefined;
 }
