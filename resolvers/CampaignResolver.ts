@@ -22,7 +22,7 @@ export default class CampaignResolver {
   }
 
   @Query(() => Campaign)
-  async getTasks(@Arg('campaignId') id: string) {
+  async getCampaignById(@Arg('campaignId') id: string) {
     return await prisma.campaign.findUnique({
       where: {
         id: id,
