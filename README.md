@@ -12,26 +12,16 @@
 
 ## Using
 
-#### Migrations
-
-```shell 
+```shell
+# Migrations
 yarn prisma migrate dev
-```
 
-#### Push db
-
-```shell
+# Push db
 yarn prisma db push --preview-feature
-```
 
-#### Formatting
-
-```shell
+# Formatting
 yarn format
-```
 
-#### Running
-
-```shell
+# Running
 yarn start
 ```
