@@ -40,5 +40,5 @@ model Task {
   Campaign   Campaign @relation(fields: [campaignId], references: [id])
   campaignId String
   category   String?
-  value String
+  value      String
 }

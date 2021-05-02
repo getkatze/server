@@ -51,6 +51,8 @@ export default class CampaignResolver {
         description,
         tasks: {
           create: [
+            { value: 'lemon'},
+            { value: 'orange' },
           ],
         },
         contractor,
@@ -59,14 +61,28 @@ export default class CampaignResolver {
     });
   }
 
-  @Mutation(() => Task)
+
+  @Mutation(() => [Task])
   async createTask(
     @Arg('campaignId') campaignId: string,
     @Arg('text') text: string,
     @Arg('userId') userId: string, // fudge u comma
-    @Arg("category", {nullable: true}) category: string
+    @Arg("category", { nullable: true }) category: string
   ) {
-    let tasks = await prisma.campaign.findUnique({
+    await prisma.campaign.update({
+      where: {
+        id: campaignId
+      },
+      data: {
+        tasks: {
+          create: {
+            value: text,
+            category,
+          }
+        }
+      },
+    })
+    let a = await prisma.campaign.findUnique({
       where: {
         id: campaignId
       },
@@ -74,19 +90,6 @@ export default class CampaignResolver {
         tasks: true
       }
     })
-    return await prisma.campaign.update({
-      where: {
-        id: campaignId,
-      },
-      data: {
-        tasks: {
-          update: [
-            {
-              text, category
-            }
-          ]
-        }
-      },
-    });
+    return a?.tasks;
   }
 }
