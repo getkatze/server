@@ -12,6 +12,15 @@ export default class UserResolver {
     return await prisma.user.findMany();
   }
 
+  @Query(() => User)
+  async getUserById(@Arg("userId") userId: string) {
+    return await prisma.user.findUnique({
+      where: {
+        id: userId
+      }
+    })
+  }
+
   @Query(() => User, { nullable: true })
   async login(@Arg('username') username: string, @Arg('password') password: string) {
     let p = await prisma.user.findUnique({

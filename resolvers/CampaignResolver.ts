@@ -26,6 +26,15 @@ export default class CampaignResolver {
     });
   }
 
+  @Query(() => [Campaign], { nullable: true })
+  async getCampaignByContractor(@Arg('contractorId') contractorId: string)  {
+    return await prisma.campaign.findMany({
+      where: {
+        contractor: contractorId
+      }
+    })
+  }
+
   @Query(() => Campaign, { nullable: true })
   async getCampaignById(@Arg('campaignId') id: string) {
     return await prisma.campaign.findUnique({

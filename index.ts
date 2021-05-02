@@ -8,12 +8,13 @@ import HelloWorldResolver from './resolvers/HelloWorldResolver';
 import UserResolver from './resolvers/UserResolver';
 import CampaignResolver from './resolvers/CampaignResolver';
 import AnalysisResolver from './resolvers/AnalysisResolver';
+import CryptoResolver from "./resolvers/CryptoResolver";
 
 (async () => {
   const app = express();
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [CampaignResolver, HelloWorldResolver, UserResolver, AnalysisResolver],
+      resolvers: [CryptoResolver, CampaignResolver, HelloWorldResolver, UserResolver, AnalysisResolver],
       validate: true,
     }),
     context: ({ req, res }) => ({ req, res }),
