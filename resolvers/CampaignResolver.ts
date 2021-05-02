@@ -22,7 +22,7 @@ export default class CampaignResolver {
     return await prisma.campaign.findMany({
       include: {
         tasks: true,
-      }
+      },
     });
   }
 
