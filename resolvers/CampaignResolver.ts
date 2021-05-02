@@ -1,5 +1,5 @@
 import { Arg, Mutation, Query, Resolver } from 'type-graphql';
-import { Campaign } from '../generated/type-graphql';
+import { Campaign, Task } from '../generated/type-graphql';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -18,7 +18,12 @@ export default class CampaignResolver {
         },
       });
     }
-    return await prisma.campaign.findMany();
+
+    return await prisma.campaign.findMany({
+      include: {
+        tasks: true,
+      }
+    });
   }
 
   @Query(() => Campaign, { nullable: true })
@@ -50,6 +55,27 @@ export default class CampaignResolver {
         },
         contractor,
         options,
+      },
+    });
+  }
+
+  @Mutation(() => Task)
+  async createTask(
+    @Arg('campaignId') campaignId: string,
+    @Arg('value') value: string,
+    @Arg('userId') userId: string
+  ) {
+    return await prisma.campaign.update({
+      where: {
+        id: campaignId,
+      },
+      data: {
+        tasks: {
+          create: {
+            user: userId,
+            value: value,
+          },
+        },
       },
     });
   }
