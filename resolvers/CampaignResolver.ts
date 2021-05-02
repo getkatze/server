@@ -51,8 +51,6 @@ export default class CampaignResolver {
         description,
         tasks: {
           create: [
-            { value: 'lemon'},
-            { value: 'orange' },
           ],
         },
         contractor,
