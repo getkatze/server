@@ -62,20 +62,30 @@ export default class CampaignResolver {
   @Mutation(() => Task)
   async createTask(
     @Arg('campaignId') campaignId: string,
-    @Arg('value') value: string,
-    @Arg('userId') userId: string
+    @Arg('text') text: string,
+    @Arg('userId') userId: string, // fudge u comma
+    @Arg("category", {nullable: true}) category: string
   ) {
+    let tasks = await prisma.campaign.findUnique({
+      where: {
+        id: campaignId
+      },
+      include: {
+        tasks: true
+      }
+    })
     return await prisma.campaign.update({
       where: {
         id: campaignId,
       },
       data: {
         tasks: {
-          create: {
-            user: userId,
-            value: value,
-          },
-        },
+          update: [
+            {
+              text, category
+            }
+          ]
+        }
       },
     });
   }

@@ -37,10 +37,8 @@ model Campaign {
 
 model Task {
   id         String   @id @default(uuid())
-  value      String
-  user       String
   Campaign   Campaign @relation(fields: [campaignId], references: [id])
   campaignId String
   category   String?
-  text       String
+  value String
 }
