@@ -45,7 +45,7 @@ export default class CampaignResolver {
     @Arg('options', () => [String]) options: string[],
     @Arg('description') description: string
   ) {
-    return await prisma.campaign.create({
+    let owo = await prisma.campaign.create({
       data: {
         name,
         description,
@@ -57,6 +57,17 @@ export default class CampaignResolver {
         options,
       },
     });
+
+    let user = await prisma.user.findUnique({ where: { username: contractor } })
+
+    await prisma.user.update({
+      where: {
+        username: contractor
+      },
+      data: {
+        campaigns: [owo.id, ...user?.campaigns!] 
+      }
+    })
   }
 
 

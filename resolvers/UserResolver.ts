@@ -34,6 +34,7 @@ export default class UserResolver {
       data: {
         username: username,
         password: hash,
+        campaigns: []
       },
     });
   }
